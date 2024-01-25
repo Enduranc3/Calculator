@@ -126,7 +126,8 @@ static long double max_s(const char** str, char* token, const char* func);      
  *                  floor value, rounded value, truncated value, sign, degrees to radians conversion, radians to degrees conversion, factorial, logarithm, decimal logarithm, minimum value, maximum value
  * \return          0 in case of successful finish
  */
-int main(void) {
+int
+main(void) {
     allocated_memory = (void**)malloc(MAX_ALLOCATED_BLOCKS * sizeof(void*));    /* Allocate memory for the allocated memory array */
     if (allocated_memory == NULL) {                                             /* Check if the memory has been allocated */
         error_handler(ERROR_FAILED_TO_ALLOCATE_MEMORY, __func__, __LINE__);     /* Handle the error if the memory has not been allocated */
