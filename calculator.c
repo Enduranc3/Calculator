@@ -504,7 +504,7 @@ has_random_letters(const char* str) {
 static void
 get_token(const char** str, char* token) {
     while (**str == ' ') {  /* While current pointer is space */
-        (*str)++;           /* Increment the pointer */
+        ++(*str);           /* Increment the pointer */
     }
     *token = **str;         /* Get the current character */
     ++(*str);               /* Increment the pointer */
