@@ -749,6 +749,7 @@ call_function(const char** str, char* token, const char* func) {
         default:
             error_handler(ERROR_UNKNOWN, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -767,6 +768,7 @@ sqrt_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -811,6 +813,7 @@ tan_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -829,6 +832,7 @@ ctan_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -847,6 +851,7 @@ asin_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -865,6 +870,7 @@ acos_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -948,6 +954,7 @@ ctanh_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -979,6 +986,7 @@ acosh_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -997,6 +1005,7 @@ atanh_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -1028,6 +1037,7 @@ actanh_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -1207,6 +1217,7 @@ log10_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
@@ -1225,6 +1236,7 @@ ln_s(const char** str, char* token) {
     } else {
         error_handler(ERROR_UNDEFINED_FUNCTION, __func__, __LINE__);
     }
+    return nan("");
 }
 
 /**
