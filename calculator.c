@@ -33,9 +33,9 @@
                     /* Functions used: */
 #include <ctype.h>  /* isalpha, isdigit */
 #include <math.h>   /* sqrt, pow, sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, fabs, ceil, floor, round, trunc, fmod, log, log10 */
-#include <stdint.h> /* int8_t, uint8_t, int32_t */
+#include <stdint.h> /* int8_t, uint8_t, int16_t, int32_t */
 #include <stdio.h>  /* printf, fgets, stdin */
-#include <stdlib.h> /* system, malloc, free, exit */
+#include <stdlib.h> /* system, malloc, free, exit, strtod */
 #include <string.h> /* strlen, strstr, strpbrk, _stricmp */
 
                                     /* Constants used: */
