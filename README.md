@@ -24,7 +24,7 @@ and a bunch of math functions, such as:
 - min or max of numbers set.
 
 ## Building
-To build the calculator, use your preferred C compiler to compile `calculator.c`.
+To build the calculator, use your preferred C compiler to compile the `calculator.c`.
 
 ## Usage
 To use the calculator, just run `calculator.exe`, or execute from the command line with no arguments. 
