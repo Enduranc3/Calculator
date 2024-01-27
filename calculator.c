@@ -171,7 +171,7 @@ main(void) {
  * \param[in]       function: A function name where the error occurred
  * \param[in]       line: A line number where the error occurred
  * \note            The function freeing allocated memory, prints an error message based on the passed error code and exits the program with the appropriate error code
-*/
+ */
 static void
 error_handler(const error_code_t error_code, const char* function, const int32_t line) {
     free_all();                                         /* Free all allocated memory */
@@ -199,7 +199,7 @@ error_handler(const error_code_t error_code, const char* function, const int32_t
 /**
  * \brief           A function used to add a pointer to the allocated memory array
  * \param[in]       ptr: A pointer to add
-*/
+ */
 static void
 add_allocated_memory(void* ptr) {
     if (allocated_memory_count + 1 >= MAX_ALLOCATED_BLOCKS) {               /* Check if the allocated memory array is full */
@@ -212,7 +212,7 @@ add_allocated_memory(void* ptr) {
 
 /**
  * \brief           A function used to free all allocated memory
-*/
+ */
 static void
 free_all(void) {
     for (; allocated_memory_count > 0; --allocated_memory_count) {  /* Loop through all allocated memory */
@@ -224,7 +224,7 @@ free_all(void) {
 /**
  * \brief           A function used to allocate and initialize math functions
  * \note            The function allocates memory for the math functions array and initializes it, some of the functions are repeated with different names, e.g. tg and tan
-*/
+ */
 static void
 init_math_functions(void) {
     math_functions = (char**)malloc(MAX_FUNCTION_COUNT * sizeof(char*));        /* Allocate memory for the math functions array */
@@ -313,7 +313,7 @@ init_math_functions(void) {
  * \brief           A function used to check if the input is valid
  * \param[in]       str: A string to check
  * \return          1 if the input is valid, 0 otherwise
-*/
+ */
 static uint8_t
 is_valid_input(const char* str) {
     size_t length;          /* A variable to store the length of the input string */
@@ -372,7 +372,7 @@ is_valid_input(const char* str) {
  * \brief           A function used to check if parentheses are valid
  * \param[in]       str: A string to check
  * \return          1 if parentheses are valid, 0 otherwise
-*/
+ */
 static uint8_t
 is_valid_parenthesis(const char* str) {
     size_t length, top = -1;    /* A variable to store the length of the input string and a variable to store the top of the stack */
@@ -414,7 +414,7 @@ is_valid_parenthesis(const char* str) {
  * \brief           A function used to check if decimal points are valid
  * \param[in]       str: A string to check
  * \return          1 if decimal points are valid, 0 otherwise
-*/
+ */
 static uint8_t
 is_valid_point(const char* str) {
     size_t length;              /* A variable to store the length of the input string */
@@ -440,7 +440,7 @@ is_valid_point(const char* str) {
  * \brief           A function used to check if spaces are valid
  * \param[in]       str: A string to check
  * \return          1 if spaces are valid, 0 otherwise
-*/
+ */
 static uint8_t
 is_valid_space(const char* str) {
     size_t length;          /* A variable to store the length of the input string */
@@ -457,7 +457,7 @@ is_valid_space(const char* str) {
  * \brief           A function used to check if there are random letters in the input
  * \param[in]       str: A string to check
  * \return          1 if there are random letters in the input, 0 otherwise
-*/
+ */
 static uint8_t
 has_random_letters(const char* str) {
     size_t length, sub_string_length = -1;            /* A variable to store the length of the input string and a variable to store the length of a substring */
@@ -515,7 +515,7 @@ get_token(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 factor(const char** str, char* token) {
     int8_t sign = 1;            /* A variable to store a sign */
@@ -570,7 +570,7 @@ factor(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 expression(const char** str, char* token) {
     double result;              /* A variable to store the result */
@@ -599,7 +599,7 @@ expression(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 term(const char** str, char* token) {
     double result;                  /* A variable to store the result */
@@ -636,7 +636,7 @@ term(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \param[in]       func: A variable to store a function
  * \return          The result of the calculation
-*/
+ */
 static double
 call_function(const char** str, char* token, const char* func) {
     size_t i; /* A variable to store the index of a math function */
@@ -758,7 +758,7 @@ call_function(const char** str, char* token, const char* func) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below 0 is considered invalid
-*/
+ */
 static double
 sqrt_s(const char** str, char* token) {
     double result;
@@ -776,7 +776,7 @@ sqrt_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 sin_s(const char** str, char* token) {
     double result;
@@ -789,7 +789,7 @@ sin_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 cos_s(const char** str, char* token) {
     double result;
@@ -803,7 +803,7 @@ cos_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            The function is calculated as sin(x) / cos(x), so if cos(x) is 0, the function is undefined
-*/
+ */
 static double
 tan_s(const char** str, char* token) {
     double result;
@@ -822,7 +822,7 @@ tan_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            The function is calculated as 1 / tan(x), so if tan(x) is 0, the function is undefined
-*/
+ */
 static double
 ctan_s(const char** str, char* token) {
     double result;
@@ -841,7 +841,7 @@ ctan_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below -1 or above 1 is considered as invalid
-*/
+ */
 static double
 asin_s(const char** str, char* token) {
     double result;
@@ -860,7 +860,7 @@ asin_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below -1 or above 1 is considered as invalid
-*/
+ */
 static double
 acos_s(const char** str, char* token) {
     double result;
@@ -878,7 +878,7 @@ acos_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 atan_s(const char** str, char* token) {
     double result;
@@ -891,7 +891,7 @@ atan_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 actan_s(const char** str, char* token) {
     double result;
@@ -904,7 +904,7 @@ actan_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 sinh_s(const char** str, char* token) {
     double result;
@@ -917,7 +917,7 @@ sinh_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 cosh_s(const char** str, char* token) {
     double result;
@@ -930,7 +930,7 @@ cosh_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 tanh_s(const char** str, char* token) {
     double result;
@@ -944,7 +944,7 @@ tanh_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            The function is calculated as 1 / tanh(x), so if tanh(x) is 0, the function is undefined
-*/
+ */
 static double
 ctanh_s(const char** str, char* token) {
     double result;
@@ -962,7 +962,7 @@ ctanh_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 asinh_s(const char** str, char* token) {
     double result;
@@ -976,7 +976,7 @@ asinh_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below 1 is considered as invalid
-*/
+ */
 static double
 acosh_s(const char** str, char* token) {
     double result;
@@ -995,7 +995,7 @@ acosh_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below -1 or above 1 is considered as invalid
-*/
+ */
 static double
 atanh_s(const char** str, char* token) {
     double result;
@@ -1013,7 +1013,7 @@ atanh_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
-*/
+ */
 static double
 exp_s(const char** str, char* token) {
     double result;
@@ -1027,7 +1027,7 @@ exp_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below -1 or above 1 is considered as invalid
-*/
+ */
 static double
 actanh_s(const char** str, char* token) {
     double result;
@@ -1058,7 +1058,7 @@ fabs_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The ceiling of a number
-*/
+ */
 static double
 ceil_s(const char** str, char* token) {
     double result;
@@ -1071,7 +1071,7 @@ ceil_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The floor of a number
-*/
+ */
 static double
 floor_s(const char** str, char* token) {
     double result;
@@ -1084,7 +1084,7 @@ floor_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The round of a number
-*/
+ */
 static double
 round_s(const char** str, char* token) {
     double result;
@@ -1097,7 +1097,7 @@ round_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The truncation of a number
-*/
+ */
 static double
 trunc_s(const char** str, char* token) {
     double result;
@@ -1110,7 +1110,7 @@ trunc_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          1 if the number is positive, -1 if the number is negative, 0 otherwise
-*/
+ */
 static double
 sign_s(const char** str, char* token) {
     double result;
@@ -1129,7 +1129,7 @@ sign_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The radian of a number
-*/
+ */
 static double
 rad_s(const char** str, char* token) {
     double result;
@@ -1142,7 +1142,7 @@ rad_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The degree of a number
-*/
+ */
 static double
 deg_s(const char** str, char* token) {
     double result;
@@ -1156,7 +1156,7 @@ deg_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The factorial of a number
  * \note            Any number with an essential fractional part is considered invalid
-*/
+ */
 static double
 fact_s(const char** str, char* token) {
     double result = 1, fact;
@@ -1177,7 +1177,7 @@ fact_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The logarithm of a number with a base
  * \note            More than one comma will lead to an error
-*/
+ */
 static double
 log_s(const char** str, char* token) {
     size_t comma_count = 0;
@@ -1207,7 +1207,7 @@ log_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The logarithm of a number with a base 10
  * \note            Any number below 0 is considered invalid
-*/
+ */
 static double
 log10_s(const char** str, char* token) {
     double result;
@@ -1226,7 +1226,7 @@ log10_s(const char** str, char* token) {
  * \param[in]       token: A variable to store a token
  * \return          The result of the calculation
  * \note            Any number below 0 is considered invalid
-*/
+ */
 static double
 ln_s(const char** str, char* token) {
     double result;
@@ -1244,7 +1244,7 @@ ln_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The minimum of a set of numbers
-*/
+ */
 static double
 min_s(const char** str, char* token) {
     double result;
@@ -1264,7 +1264,7 @@ min_s(const char** str, char* token) {
  * \param[in]       str: A string to calculate
  * \param[in]       token: A variable to store a token
  * \return          The maximum of a set of numbers
-*/
+ */
 static double
 max_s(const char** str, char* token) {
     double result;
