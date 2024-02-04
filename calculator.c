@@ -217,8 +217,10 @@ static void
 free_all(void) {
     for (; allocated_memory_count > 0; --allocated_memory_count) {  /* Loop through all allocated memory */
         free(allocated_memory[allocated_memory_count - 1]);         /* Free the allocated memory */
+        allocated_memory[allocated_memory_count - 1] = NULL;
     }
     free(allocated_memory);                                         /* Free the allocated memory array */
+    allocated_memory = NULL;
 }
 
 /**
@@ -385,27 +387,32 @@ is_valid_parenthesis(const char* str) {
         if (str[i] == '(') {                /* If the character is a left parenthesis */
             if (isdigit(str[i - 1]) && isdigit(str[i + 1])) {   /* Check if the previous and the next characters are digits */
                 free(stack);
+                stack = NULL;
                 return 0;                                       /* If so, parentheses are invalid */
             }
             stack[++top] = str[i];          /* Push the character to the stack */
         } else if (str[i] == ')') {         /* Else if the character is a right parenthesis */
             if (top == -1) {                /* Check if the stack is empty */
                 free(stack);
+                stack = NULL;
                 return 0;                   /* If so, parentheses are invalid */
             }
             char last = stack[top];         /* Get the last character from the stack */
             --top;                          /* Decrement the top of the stack */
             if (last != '(') {              /* Check if the last character from the stack is not a left parenthesis */
                 free(stack);
+                stack = NULL;
                 return 0;                   /* If so, parentheses are invalid */
             }
         }
     }
     if (top != -1) {    /* Check if the stack is not empty */
         free(stack);
+        stack = NULL;
         return 0;       /* If so, parentheses are invalid */
     } else {            /* Else if the stack is empty */
         free(stack);
+        stack = NULL;
         return 1;       /* Then parentheses are valid or absent */
     }
 }
@@ -483,6 +490,7 @@ has_random_letters(const char* str) {
             }
             if (!is_valid_function || str[i] != '(') {              /* If the function is not valid or the next character is not a left parenthesis */
                 free(sub_string);
+                sub_string = NULL;
                 return 1;                                           /* Then there are random letters in the input */
             } else {                                                /* Else if the function is valid and the next character is a left parenthesis */
                 has_been_compared = 1;                              /* Set the variable to store if a function has been compared to 1 */
@@ -491,15 +499,16 @@ has_random_letters(const char* str) {
         }
     }
     free(sub_string);
+    sub_string = NULL;
     return 0;  /* If no errors were found during the check before that, then there are no random letters in the input */
 }
 
 
 /**
  * \brief           Retrieves the next token from a string
- * \param               str: The input string pointer
- * \param               token: The variable to store the retrieved token
- * \note                The function skips all spaces and retrieves the next token from the input string
+ * \param           str: The input string pointer
+ * \param           token: The variable to store the retrieved token
+ * \note            The function skips all spaces and retrieves the next token from the input string
  */
 static void
 get_token(const char** str, char* token) {
@@ -544,6 +553,7 @@ factor(const char** str, char* token) {
         number[++i] = '\0';                                                     /* Add the null terminator to the end of the number */
         result = strtod(number, NULL);                                          /* Convert the number to a double */
         free(number);                                                           /* Free the allocated memory */
+        number = NULL;
     } else if (isalpha(*token)) {                                               /* Else if the token is a letter */
         int8_t i = -1;                                                          /* A variable to store the length of a function */
         char* func = (char*)malloc(MAX_INPUT_LENGTH * sizeof(char));            /* Allocate memory for a function */
@@ -559,6 +569,7 @@ factor(const char** str, char* token) {
         get_token(str, token);                                                  /* Get the next token */
         result = call_function(str, token, func);                               /* Calculate the result */
         free(func);                                                             /* Free the allocated memory */
+        func = NULL;
         --allocated_memory_count;                                               /* Decrement the number of allocated blocks, because it was incremented in add_allocated_memory */
         get_token(str, token);                                                  /* Get the next token */
     }
